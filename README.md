@@ -1,6 +1,15 @@
 # Usando Terraform para gerenciar Infraestrutura no VMWare Cloud Director
 
 Exemplo para criação uma infraestrutura de VMs no VMWare Cloud Director junto com uma infraestrutura de rede no NSX-T.
+Este repositório contém um exemplo bem prático de como criar uma infraestrutura de VMs no VMWare Cloud Director, além de criar a infraestrutura de rede que será utilizada pelas VMs como a rede interna e regras de firewall, NAT e SNAT.
+
+### Recursos que serão cridados
+
+1. Rede interna do VDC.
+2. Virtual Application para as VMs.
+3. Regras de firewall.
+4. Regras de NAT e SNAT para acessar a internet e acesso SSH externo.
+5. IPSet utilizado para criar regras de firewall.
 
 ## Pre-Requisitos
 
@@ -60,7 +69,7 @@ Segue as variáveis que precisam ser configuradas:
 |org_edge|EXEMPLO_EGT|Nome do Edge da Org|
 |vdc_network_name|LAN-Demo|Nome da rede interna do VDC (LAN)|
 |vdc_internal_address|172.16.10.0/24|CIDR da rede interna do Edge|
-|vdc_internal_addressLst|["172.16.10.0/24", "172.16.11.0/24"]|Lista com as redes CIDR da rede interna do Edge. (Pode ter mais de uma caso existam outras rede criadas)|
+|vdc_internal_addressLst|["172.16.10.0/24", "172.16.11.0/24"]|Lista com as redes CIDR da rede interna do Edge. (Pode ter mais de uma caso existam outras redes criadas)|
 |vdc_network_gateway|172.16.15.1|Gateway padrão da rede interna do VDC|
 |vdc_network_prefix|24|Prefixo da rede interna do VDC|
 |vdc_network_mask|255.255.255.0|Mascara da rede interna do VDC|
@@ -85,7 +94,7 @@ terraform plan -var-file=<EXTRA_VAR_FILE> -out plano
 terraform apply plano
 ```
 
-Observação: O parâmetro `-var-file=<EXTRA_VAR_FILE>` é opcional caso você queria passar um arquivo de variáveis separado. Por exemplo se vocês quiser deixar as variáveis que contenham dados `sensíveis` em um arquivo fora do repositório.
+Observação: O parâmetro `-var-file=<EXTRA_VAR_FILE>` é opcional caso você queria passar um arquivo de variáveis separado. Por exemplo se vocês quiser deixar as variáveis que contenham dados `sensíveis` como credenciais em um arquivo fora do repositório.
 
 ## Remoção da Infraestrutura
 
