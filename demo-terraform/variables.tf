@@ -84,7 +84,7 @@ variable vdc_internal_address {
 variable vdc_internal_addressLst {
   type        = list(string)
   default     = ["<CIDR_REDE_INTERNA_VDC>"]
-  description = "Lista CIDR da rede interna do Edge"
+  description = "Lista com as redes CIDR da rede interna do Edge."
 }
 
 variable vdc_network_gateway {
@@ -172,7 +172,7 @@ variable instance02_qtd {
   description = "Quantidade de instâncias a serem criadas"
 }
 
-variable unifique_whitelist {
+variable ipset_whitelist {
   type        = list(string)
   default     = ["<LISTA_IP_WHITELIST>"]
   description = "IPSet de IPs em Whitelist"
