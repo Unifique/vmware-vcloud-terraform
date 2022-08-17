@@ -30,7 +30,7 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
 
-## Instalar o Terraform no Windows
+### Instalar o Terraform no Windows
 
 1. Download do Terraform no Windows (amd64): [Terraform Windows](https://releases.hashicorp.com/terraform/1.2.7/terraform_1.2.7_windows_amd64.zip).
 2. Extrair o arquivo.
