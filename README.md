@@ -40,6 +40,7 @@ brew install hashicorp/tap/terraform
 
 ```
 git clone https://github.com/Unifique/vmware-vcloud-terraform.git
+cd vmware-vcloud-terraform
 ```
 
 ## Ajustando o arquivo de variáveis usado pelo Terraform
@@ -83,3 +84,17 @@ terraform init
 terraform plan -var-file=<EXTRA_VAR_FILE> -out plano
 terraform apply plano
 ```
+
+Observação: O parâmetro `-var-file=<EXTRA_VAR_FILE>` é opcional caso você queria passar um arquivo de variáveis separado. Por exemplo se vocês quiser deixar as variáveis que contenham dados `sensíveis` em um arquivo fora do repositório.
+
+## Remoção da Infraestrutura
+
+```bash
+terraform destroy -var-file=<EXTRA_VAR_FILE>
+```
+
+## Documentação adicional do Terraform
+
+* Para mais informações sobre o Terraform e a documentação, acesse: [Terraform Documentation](https://www.terraform.io/docs/).
+
+* Para mais informações sobre o Provider do vcd, acesse: [VCD Provider Documentation](https://registry.terraform.io/providers/vmware/vcd/latest).
