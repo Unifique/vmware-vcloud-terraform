@@ -1,14 +1,21 @@
 variable vcd_user {
   type        = string
-  default     = ""
+  default     = "none"
   description = "Usuário VMWare Cloud Director"
   sensitive   = true
 }
 
 variable vcd_pass {
   type        = string
-  default     = ""
+  default     = "none"
   description = "Senha usuário VMWare Cloud Director"
+  sensitive   = true
+}
+
+variable "vcd_token" {
+  type        = string
+  default     = ""
+  description = "API Token VMWare Cloud Director"
   sensitive   = true
 }
 
@@ -32,125 +39,125 @@ variable vcd_allow_unverified_ssl {
 
 variable vcd_org {
   type        = string
-  default     = "<NOME_ORG>"
+  default     = ""
   description = "Org do VMWare Cloud Director"
   sensitive   = false
 }
 
 variable vcd_vdc {
   type        = string
-  default     = "<NOME_VIRTUAL_DATACENTER>"
+  default     = ""
   description = "Nome do VDC do VMWare Cloud Director (vSphere 7.0)"
   sensitive   = false
 }
 
 variable vApp {
   type        = string
-  default     = "<NOME_VAPP>"
+  default     = ""
   description = "Nome do VApp da instancia do VMWare Cloud Director"
 }
 
 variable vdc_catalog {
   type        = string
-  default     = "<NOME_CATALOGO_VDC>"
+  default     = ""
   description = "Nome do catálogo do VDC"
 }
 
 variable vdc_template {
   type        = string
-  default     = "<NOME_TEMPLATE_VDC>"
+  default     = ""
   description = "Nome de template da instância do VDC"
 }
 
 variable vdc_network_name {
   type        = string
-  default     = "<NOME_REDE_VDC>"
+  default     = ""
   description = "Nome da rede interna do VDC (LAN)"
 }
 
 variable org_edge {
   type        = string
-  default     = "<NOME_ORG_EDGE>"
+  default     = ""
   description = "Nome do Edge da Org"
   sensitive   = false
 }
 
 variable vdc_internal_address {
   type        = string
-  default     = "<CIDR_REDE_INTERNA_VDC>"
+  default     = ""
   description = "CIDR da rede interna do Edge"
 }
 
 variable vdc_internal_addressLst {
   type        = list(string)
-  default     = ["<CIDR_REDE_INTERNA_VDC>"]
+  default     = [""]
   description = "Lista com as redes CIDR da rede interna do Edge."
 }
 
 variable vdc_network_gateway {
   type        = string
-  default     = "<GATEWAY_REDE_VDC>"
+  default     = ""
   description = "Gateway da rede interna do VDC"
 }
 
 variable "vdc_network_prefix" {
   type        = string
-  default     = "<PREFIXO_REDE_VDC>"
+  default     = ""
   description = "Prefixo da rede interna do VDC"
 }
   
 variable vdc_network_mask {
   type        = string
-  default     = "<MASCARA_REDE_VDC>"
+  default     = ""
   description = "Mascara da rede interna do VDC"
 }
 
 variable vdc_network_dns1 {
   type        = string
-  default     = "<DNS1_REDE_VDC>"
+  default     = ""
   description = "DNS1 do POOL da rede interna do VDC"
 }
 
 variable vdc_network_dns2 {
   type        = string
-  default     = "<DNS2_REDE_VDC>"
+  default     = ""
   description = "DNS2 do POOL da rede interna do VDC"
 }
 
 variable vdc_dhcp_start_address {
   type        = string
-  default     = "<DHCP_INICIO_REDE_VDC>"
+  default     = ""
   description = "Inicio do bloco de IP do DHCP da rede interna do VDC"
 }
 
 variable vdc_dhcp_end_address {
   type        = string
-  default     = "<DHCP_FINAL_REDE_VDC>"
+  default     = ""
   description = "Fim do bloco de IP do DHCP da rede interna do VDC"
 }
 
 variable vdc_static_ip_start_address {
   type        = string
-  default     = "<STATIC_INICIO_REDE_VDC>"
+  default     = ""
   description = "Inicio do bloco de IP estático da rede interna do VDC"
 }
 
 variable vdc_static_ip_end_address {
   type        = string
-  default     = "<STATIC_FINAL_REDE_VDC>"
+  default     = ""
   description = "Fim do bloco de IP estático da rede interna do VDC"
 }
 
 variable vdc_storage_profile {
   type        = string
-  default     = "<NOME_STORAGE_PROFILE_VDC>"
+  default     = ""
   description = "Profile da politica de disco do VDC"
   sensitive   = false
 }
 
 variable vdc_vm_os_type {
   type        = string
-  default     = "<NOME_OS_VDC>"
+  default     = ""
   description = "Defini o tipo de sistema operacional das vms dentro do VMWare"
 }
 
@@ -162,18 +169,18 @@ variable vdc_disk_bus_type {
 
 variable vdc_instance01_disk0_size {
   type        = string
-  default     = "<TAMANHO_DISCO_INSTANCIA01>"
+  default     = ""
   description = "tamanho do disco da instância 01 em MB."
 }
 
 variable instance02_qtd {
   type        = number
-  default     = <QTD_INSTANCIAS>
+  default     = 1
   description = "Quantidade de instâncias a serem criadas"
 }
 
 variable ipset_whitelist {
   type        = list(string)
-  default     = ["<LISTA_IP_WHITELIST>"]
+  default     = [""]
   description = "IPSet de IPs em Whitelist"
 }
