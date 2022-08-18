@@ -6,7 +6,7 @@ Este repositório contém um exemplo bem prático de como criar uma infraestrutu
 ### Recursos que serão cridados
 
 1. Rede interna do VDC.
-2. Virtual Application para as VMs.
+2. Criação de uma vApp para as VMs.
 3. Regras de firewall.
 4. Regras de NAT e SNAT para acessar a internet e acesso SSH externo.
 5. IPSet utilizado para criar regras de firewall.
