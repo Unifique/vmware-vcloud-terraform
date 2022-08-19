@@ -19,3 +19,30 @@ module "vdc_network" {
   vdc_network_prefix = var.vdc_network_prefix
   vApp = var.vApp
 }
+
+# Carrega o módulo para criar as instâncias
+module "instances" {
+  source = "./instances"
+    vcd_org = var.vcd_org
+    vcd_vdc = var.vcd_vdc
+    vApp = var.vApp
+    vdc_network1_name = var.vdc_network_name
+    vdc_storage_profile = var.vdc_storage_profile
+    vdc_instance01_disk0_size = var.vdc_instance01_disk0_size
+    vdc_disk_bus_type = var.vdc_disk_bus_type
+    instance02_qtd = var.instance02_qtd
+    vdc_vm_os_type = var.vdc_vm_os_type
+    vdc_catalog = var.vdc_catalog
+    vdc_template = var.vdc_template
+    depends_on = [module.vdc_network]  
+}
+
+# Saída de informações do deploy do ambiente
+output sumario_do_recursos_criados {
+  value       = [
+    module.vdc_network.network_vdc_info,
+    module.instances.instances_info
+  ]
+  sensitive   = false
+  description = "description"
+}
