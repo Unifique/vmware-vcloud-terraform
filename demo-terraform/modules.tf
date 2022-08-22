@@ -18,6 +18,7 @@ module "vdc_network" {
   vdc_internal_address = var.vdc_internal_address
   vdc_network_prefix = var.vdc_network_prefix
   vApp = var.vApp
+  vcd_provider_version = var.vcd_provider_version
 }
 
 # Carrega o módulo para criar as instâncias
@@ -34,6 +35,7 @@ module "instances" {
     vdc_vm_os_type = var.vdc_vm_os_type
     vdc_catalog = var.vdc_catalog
     vdc_template = var.vdc_template
+    vcd_provider_version = var.vcd_provider_version
     depends_on = [module.vdc_network]  
 }
 

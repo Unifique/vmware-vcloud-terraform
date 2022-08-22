@@ -1,3 +1,8 @@
+variable "vcd_provider_version" {
+  type        = string
+  description = "Versão do provider VMWare Cloud Director"
+}
+
 variable vcd_org {
   type        = string
   description = "Org do VMware Cloud Director"

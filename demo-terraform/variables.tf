@@ -25,6 +25,12 @@ variable vcd_url {
   description = "URL da API do VCloud"
 }
 
+variable "vcd_provider_version" {
+  type        = string
+  default     = "3.7.0"
+  description = "Versão do provider VMWare Cloud Director"
+}
+
 variable vcd_max_retry_timeout {
   type        = number
   default     = 120
