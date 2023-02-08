@@ -1,13 +1,38 @@
-name: CI
+#name: CI
 
-on: [push]
+#on: [push]
 
-jobs:
-  security:
+#jobs:
+#  security:
 
-    runs-on: ubuntu-latest
+#    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Terraform security scan
-        uses: triat/terraform-security-scan@v1.1
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Terraform security scan
+#        uses: triat/terraform-security-scan@v1.1
+
+
+- name: tfsec action
+  # You may pin to the exact commit or the version.
+  # uses: aquasecurity/tfsec-action@b466648d6e39e7c75324f25d83891162a721f2d6
+  uses: aquasecurity/tfsec-action@v1.0.3
+  with:
+    # Directory to run the action on, from the repo root.
+Default is . (root of the repository)
+
+    working_directory: # optional, default is .
+    # The version of tfsec to use, defaults to latest
+    version: # optional, default is latest
+    # the format of the output
+    format: # optional, default is default
+    # Space separated args specified here will be added during tfsec execution.
+(eg. --force-all-dirs --verbose)
+
+    additional_args: # optional
+    # If set to `true` the action step won't break the  build
+    soft_fail: # optional
+    # GitHub token used for making authenticated requests to the GitHub API,
+which helps avoid rate limiting
+
+    github_token: # optional
